@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * 处理登录请求
+ * 注意：
+ * 1.详细讲解Servlet的XML配置；
+ * 2.无论多少个人访问这个Servlet，都访问的是同一个Servlet对象（即容器只创建一个LoginServlet对象）！
  */
 public class LoginServlet extends HttpServlet {
        
@@ -19,6 +22,7 @@ public class LoginServlet extends HttpServlet {
 	// 主要讲 Servlet 处理请求的过程，重点是接收请求数据，写回响应数据，响应编码处理。
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		// 注意参数与input标签中的name属性的值是一样的，与input标签的id无关
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		
