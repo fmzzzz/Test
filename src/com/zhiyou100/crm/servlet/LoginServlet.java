@@ -10,6 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.zhiyou100.crm.model.User;
+import com.zhiyou100.crm.service.UserService;
+import com.zhiyou100.crm.service.impl.UserServiceImpl;
+
 /**
  * 处理登录请求
  * 注意：
@@ -20,9 +24,14 @@ public class LoginServlet extends HttpServlet {
        
 	private static final long serialVersionUID = 1L;
 	
+	UserService userService = new UserServiceImpl();
+	
 	// 去掉了所有没必要的代码及注释
 	// 主要讲页面跳转。
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		// 接收中文参数需要设置
+		request.setCharacterEncoding("utf-8");
 		
 		// 注意参数与input标签中的name属性的值是一样的，与input标签的id无关
 		String username = request.getParameter("username");
@@ -62,14 +71,18 @@ public class LoginServlet extends HttpServlet {
 		*/
 		
 		
+		 User user = userService.getUserByLogin(username, password);
+		 System.out.println("用户信息：" + user);
+		 
+		
 		// 处理登录请求后不直接响应，而是跳转页面，这样我们可以利用JSP呈现复杂的页面，而不是用println/write之类写回大量的HTML
-		if ("admin".equals(username) && "123456".equals(password)) {
+		if (user != null) {
 			
 			// 登录成功，在Session中保存用户信息
 			// 查看源代码及文档的方法：从Tomcat官方下载源代码并附加到Eclipse中
 			// 参数true的作用是如果还没有session，则创建一个。
 			HttpSession session = request.getSession(true);
-			session.setAttribute("username", username);
+			session.setAttribute("username", user.getUsername());
 			
 			// 登录成功，用重定向的方法跳到后台首页
 			// 注意，因为重定向是浏览器行为，所以地址要加上应用路径，注意观察浏览器地址栏中地址的变化
