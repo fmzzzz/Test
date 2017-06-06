@@ -2,33 +2,35 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>crm</display-name>
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
     <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
   <servlet>
     <description>登录请求</description>
     <servlet-name>LoginServlet</servlet-name>
     <servlet-class>com.zhiyou100.crm.servlet.LoginServlet</servlet-class>
   </servlet>
   <servlet>
-  	<description>退出请求</description>
-  	<servlet-name>LogoutServlet</servlet-name>
-  	<servlet-class>com.zhiyou100.crm.servlet.LogoutServlet</servlet-class>
+    <description>退出请求</description>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>com.zhiyou100.crm.servlet.LogoutServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/user/login</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>LogoutServlet</servlet-name>
-  	<url-pattern>/user/logout</url-pattern>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/user/logout</url-pattern>
   </servlet-mapping>
-  
+  <filter>
+  	<filter-name>UserFilter</filter-name>
+  	<filter-class>com.zhiyou100.crm.filter.UserFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>UserFilter</filter-name>
+ 	<url-pattern>/admin.jsp</url-pattern>
+ 	<url-pattern>/message.jsp</url-pattern>
+  </filter-mapping>
   <jsp-config>
     <taglib>
       <taglib-uri>http://java.sun.com/jstl/fmt</taglib-uri>
