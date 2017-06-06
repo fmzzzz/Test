@@ -52,4 +52,9 @@ input[type=submit] {
     color: #fff;
     padding: 0;
     margin: 5px 0;
+    cursor: pointer;
+}
+.error-message {
+	color: #d70f18;
+	margin: 3px 0;
 }
