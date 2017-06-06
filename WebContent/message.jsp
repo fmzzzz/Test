@@ -7,5 +7,8 @@
 </head>
 <body>
 	<h1>站内消息</h1>
+	<p>
+		当前用户：${sessionScope.username}
+	</p>
 </body>
 </html>

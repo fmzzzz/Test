@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * 处理登录请求
@@ -63,9 +64,17 @@ public class LoginServlet extends HttpServlet {
 		
 		// 处理登录请求后不直接响应，而是跳转页面，这样我们可以利用JSP呈现复杂的页面，而不是用println/write之类写回大量的HTML
 		if ("admin".equals(username) && "123456".equals(password)) {
+			
+			// 登录成功，在Session中保存用户信息
+			// 查看源代码及文档的方法：从Tomcat官方下载源代码并附加到Eclipse中
+			// 参数true的作用是如果还没有session，则创建一个。
+			HttpSession session = request.getSession(true);
+			session.setAttribute("username", username);
+			
 			// 登录成功，用重定向的方法跳到后台首页
 			// 注意，因为重定向是浏览器行为，所以地址要加上应用路径，注意观察浏览器地址栏中地址的变化
 			response.sendRedirect(request.getContextPath() + "/admin.jsp");
+			
 		}
 		else {
 			

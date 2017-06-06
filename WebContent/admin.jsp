@@ -8,6 +8,14 @@
 </head>
 <body>
 	<h1>后台首页</h1>
-	<a href="<c:url value="/message.jsp" />">站内消息</a>
+	<p>
+		当前用户：${sessionScope.username}
+	</p>
+	<p>
+		<a href="<c:url value="/message.jsp" />">站内消息</a>
+	</p>
+	<p>
+		<a href="<c:url value="/user/logout" />">退出</a>
+	</p>
 </body>
 </html>
