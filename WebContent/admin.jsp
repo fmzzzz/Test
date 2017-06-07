@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>首页 - 智游客户关系管理系统</title>
 <link rel="stylesheet" href="<c:url value="/css/admin.css" />">
-<link rel="stylesheet" href="<c:url value="/libs/font-awesome/css/font-awesome.css" />">
+<link rel="stylesheet" href="<c:url value="/lib/font-awesome/css/font-awesome.css" />">
 </head>
 <body>
 	<div class="header">
@@ -177,7 +177,7 @@
 		    </div>
 	    </div>    
     </div>
-    <script src="<c:url value="/libs/jquery/jquery.js" />"></script>
+    <script src="<c:url value="/lib/jquery/jquery.js" />"></script>
     <script src="<c:url value="/js/admin.js" />"></script>
 </body>
 </html>
