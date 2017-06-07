@@ -89,9 +89,9 @@
 	    	</li>
 	        <li class="sub-menu">
 		        <ul>
-		        	<li class="active">
-		        		<a target="pageBox" href="<c:url value="/message.jsp" />">
-		            		<i class=" fa fa-circle"></i>&nbsp;&nbsp;通知公告
+		        	<li>
+		        		<a target="pageBox" href="<c:url value="/notice/list" />">
+		            		<i class=" fa fa-circle-thin"></i>&nbsp;&nbsp;通知公告
 		            	</a>
 		        	</li>
 		            <li>

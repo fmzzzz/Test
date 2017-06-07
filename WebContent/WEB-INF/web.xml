@@ -7,12 +7,12 @@
   <servlet>
     <description>登录请求</description>
     <servlet-name>LoginServlet</servlet-name>
-    <servlet-class>com.zhiyou100.crm.servlet.LoginServlet</servlet-class>
+    <servlet-class>com.zhiyou100.crm.servlet.user.LoginServlet</servlet-class>
   </servlet>
   <servlet>
     <description>退出请求</description>
     <servlet-name>LogoutServlet</servlet-name>
-    <servlet-class>com.zhiyou100.crm.servlet.LogoutServlet</servlet-class>
+    <servlet-class>com.zhiyou100.crm.servlet.user.LogoutServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
@@ -23,13 +23,13 @@
     <url-pattern>/user/logout</url-pattern>
   </servlet-mapping>
   <filter>
-  	<filter-name>UserFilter</filter-name>
-  	<filter-class>com.zhiyou100.crm.filter.UserFilter</filter-class>
+    <filter-name>UserFilter</filter-name>
+    <filter-class>com.zhiyou100.crm.filter.UserFilter</filter-class>
   </filter>
   <filter-mapping>
-  	<filter-name>UserFilter</filter-name>
- 	<url-pattern>/admin.jsp</url-pattern>
- 	<url-pattern>/message.jsp</url-pattern>
+    <filter-name>UserFilter</filter-name>
+    <url-pattern>/admin.jsp</url-pattern>
+    <url-pattern>/message.jsp</url-pattern>
   </filter-mapping>
   <jsp-config>
     <taglib>

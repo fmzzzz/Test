@@ -1,4 +1,4 @@
-package com.zhiyou100.crm.servlet;
+package com.zhiyou100.crm.servlet.user;
 
 import java.io.IOException;
 import java.io.PrintWriter;
