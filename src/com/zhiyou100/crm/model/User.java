@@ -3,6 +3,7 @@ package com.zhiyou100.crm.model;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
+// 注意为了让保存在Session中的模型数据比较稳定，需要支持序列化
 public class User implements Serializable  {
 	private static final long serialVersionUID = 1L;
 	
