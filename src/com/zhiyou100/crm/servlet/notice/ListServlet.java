@@ -1,11 +1,18 @@
 package com.zhiyou100.crm.servlet.notice;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.zhiyou100.crm.model.Notice;
+import com.zhiyou100.crm.service.NoticeService;
+import com.zhiyou100.crm.service.impl.NoticeServiceImpl;
+import com.zhiyou100.crm.util.Pager;
 
 /**
  * 通知公告列表
@@ -13,14 +20,44 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/notice/list")
 public class ListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	NoticeService noticeService = new NoticeServiceImpl();
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String field = "";
+		String keyword = "";
+		int pageNo = 1;
+		
+		if ("POST".equalsIgnoreCase(request.getMethod())) {
+			field = (String)request.getAttribute("field");
+			keyword = (String)request.getAttribute("keyword");
+			pageNo = (int)request.getAttribute("pageNo");
+		}		
+		
+		int total = noticeService.total(field, keyword);
+		Pager pager = new Pager(total, pageNo);
+		List<Notice> list = noticeService.list(field, keyword, pager);
+		
+		
+		request.setAttribute("list", list);
+		request.setAttribute("pager", pager);
 		request.getRequestDispatcher("/WEB-INF/view/notice/list.jsp").forward(request, response);
 	}
 
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		String field = request.getParameter("searchField");
+		String keyword = request.getParameter("keyword");
+		
+		int pageNo = 1;
+		String pn = request.getParameter("pageNo");
+		if (pn != null && !"".equals(pn)) {
+			pageNo = Integer.parseInt(pn);
+		}
+		
+		request.setAttribute("field", field);
+		request.setAttribute("keyword", keyword);
+		request.setAttribute("pageNo", pageNo);
+		
 		doGet(request, response);
 	}
 

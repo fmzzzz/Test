@@ -3,9 +3,11 @@ package com.zhiyou100.crm.service;
 import java.util.List;
 
 import com.zhiyou100.crm.model.Notice;
+import com.zhiyou100.crm.util.Pager;
 
 public interface NoticeService {
-	List<Notice> list(String field, String keyword, int pageNo, int pageSize);
+	int total(String field, String keyword);
+	List<Notice> list(String field, String keyword, Pager pager);
 	Notice getById(int noticeId);
 	boolean add(Notice notice);
 	boolean removeById(int noticeId);
