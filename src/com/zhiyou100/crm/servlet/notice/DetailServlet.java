@@ -7,19 +7,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.zhiyou100.crm.model.Notice;
+import com.zhiyou100.crm.service.NoticeService;
+import com.zhiyou100.crm.service.impl.NoticeServiceImpl;
+
 /**
  * 公告详情
  */
 @WebServlet("/notice/detail")
 public class DetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	NoticeService noticeService = new NoticeServiceImpl();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int noticeId = Integer.parseInt(request.getParameter("id"));
+		Notice notice = noticeService.getById(noticeId);
+		request.setAttribute("notice", notice);
 		request.getRequestDispatcher("/WEB-INF/view/notice/detail.jsp").forward(request, response);
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
 	}
 
 }

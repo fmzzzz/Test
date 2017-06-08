@@ -49,7 +49,7 @@
                 <td>${ notice.subject }</td>
                 <td>全部</td>
                 <td>
-                	<a title="查看详情" href="<c:url value="/notice/detail" />" >
+                	<a title="查看详情" href="<c:url value="/notice/detail?id=" />${notice.noticeId}" >
                 	<c:choose> 
 				     	<c:when test="${fn:length(notice.text) > 32}"> 
 				      		${ fn:substring(notice.text, 0, 32) }...
