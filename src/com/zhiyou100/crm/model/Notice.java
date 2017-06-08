@@ -16,6 +16,7 @@ public class Notice implements Serializable  {
 	String remark;
 	Timestamp createTime;
 	int creater;
+	String createrName;
 	Timestamp updateTime;
 	int updater;
 	
@@ -33,6 +34,7 @@ public class Notice implements Serializable  {
 				"remark:" + this.remark + ", " +
 				"createTime:" + this.createTime + ", " +
 				"creater:" + this.creater + ", " +
+				"createrName:" + this.createrName + ", " +
 				"updateTime:" + this.updateTime + ", " +
 				"updater:" + this.updater +
 				"}";
@@ -98,6 +100,12 @@ public class Notice implements Serializable  {
 	}
 	public void setCreater(int creater) {
 		this.creater = creater;
+	}
+	public String getCreaterName() {
+		return createrName;
+	}
+	public void setCreaterName(String createrName) {
+		this.createrName = createrName;
 	}
 	public Timestamp getUpdateTime() {
 		return updateTime;

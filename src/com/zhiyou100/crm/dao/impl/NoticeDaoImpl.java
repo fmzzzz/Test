@@ -18,7 +18,7 @@ public class NoticeDaoImpl implements NoticeDao {
 	StringBuilder buildQuerySql(String field, String keyword) {
 		return buildQuerySql(field, keyword, false);
 	}
-	
+
 	// 把拼接SQL语句的代码封装成一个方法
 	StringBuilder buildQuerySql(String field, String keyword, boolean isCount) {
 		String filter = "";
