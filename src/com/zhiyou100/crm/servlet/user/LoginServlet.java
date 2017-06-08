@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import com.zhiyou100.crm.model.User;
 import com.zhiyou100.crm.service.UserService;
 import com.zhiyou100.crm.service.impl.UserServiceImpl;
+import com.zhiyou100.crm.util.SessionKey;
 
 /**
  * 处理登录请求
@@ -30,8 +31,8 @@ public class LoginServlet extends HttpServlet {
 	// 主要讲页面跳转。
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		// 接收中文参数需要设置
-		request.setCharacterEncoding("utf-8");
+		// 接收中文参数需要设置，已经改为通过Filter实现了
+		//request.setCharacterEncoding("utf-8");
 		
 		// 注意参数与input标签中的name属性的值是一样的，与input标签的id无关
 		String username = request.getParameter("username");
@@ -82,7 +83,8 @@ public class LoginServlet extends HttpServlet {
 			// 查看源代码及文档的方法：从Tomcat官方下载源代码并附加到Eclipse中
 			// 参数true的作用是如果还没有session，则创建一个。
 			HttpSession session = request.getSession(true);
-			session.setAttribute("username", user.getUsername());
+			session.setAttribute(SessionKey.USERNAME, user.getUsername());
+			session.setAttribute(SessionKey.USER, user);
 			
 			// 登录成功，用重定向的方法跳到后台首页
 			// 注意，因为重定向是浏览器行为，所以地址要加上应用路径，注意观察浏览器地址栏中地址的变化

@@ -1,11 +1,20 @@
 package com.zhiyou100.crm.servlet.notice;
 
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.zhiyou100.crm.model.Notice;
+import com.zhiyou100.crm.model.User;
+import com.zhiyou100.crm.service.NoticeService;
+import com.zhiyou100.crm.service.impl.NoticeServiceImpl;
+import com.zhiyou100.crm.util.SessionKey;
 
 /**
  * 发布公告
@@ -13,13 +22,36 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/notice/add")
 public class AddServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	NoticeService noticeService = new NoticeServiceImpl();
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/WEB-INF/view/notice/add.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		
+		Notice notice = new Notice();
+		notice.setPubTime(Timestamp.valueOf(request.getParameter("pubTime")));
+		notice.setExpireTime(Timestamp.valueOf(request.getParameter("expireTime")));
+		notice.setSubject(request.getParameter("subject"));
+		notice.setText(request.getParameter("text"));
+		notice.setCreateTime(Timestamp.valueOf(LocalDateTime.now()));
+
+		
+		// 为了能获取更多的用户信息，我们需要把User对象保存在Session中
+		User user = (User)request.getSession().getAttribute(SessionKey.USER);
+		notice.setCreater(user.getCreater());
+		
+		System.out.println(notice);
+		
+		if (noticeService.add(notice)) {
+			response.sendRedirect(request.getContextPath() + "/notice/list");
+		}
+		else{
+			doGet(request, response);
+		}
+		
 	}
 
 }

@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.zhiyou100.crm.util.SessionKey;
+
 /**
  * 检查用户是否登录，如果没有登录则跳转到登录页
  */
@@ -24,7 +26,7 @@ public class UserFilter implements Filter {
 		HttpServletRequest req = (HttpServletRequest)request;
 		HttpSession session = req.getSession();
 		
-		if (session == null || session.getAttribute("username") == null) {
+		if (session == null || session.getAttribute(SessionKey.USERNAME) == null) {
 			System.out.println("用户过滤器：用户未登录，跳到登录页！");
 			
 			HttpServletResponse res = (HttpServletResponse)response;

@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="com.zhiyou100.crm.util.SessionKey" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -22,7 +23,7 @@
             <a target="right" href="#">发送微信</a>
 	    </div>
 	    <div class="user">
-	        <a href="#">${sessionScope.username}</a>
+	        <a href="#">${ sessionScope[SessionKey.USERNAME] }</a>
 	        <a href="<c:url value="/user/logout" />" >退出</a>
 	    </div>
     </div>

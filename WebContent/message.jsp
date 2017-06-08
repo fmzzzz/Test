@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="com.zhiyou100.crm.util.SessionKey" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +9,7 @@
 <body>
 	<h1>站内消息</h1>
 	<p>
-		当前用户：${sessionScope.username}
+		当前用户：${ sessionScope[SessionKey.USERNAME] }
 	</p>
 </body>
 </html>

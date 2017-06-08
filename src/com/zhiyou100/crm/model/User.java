@@ -1,16 +1,20 @@
 package com.zhiyou100.crm.model;
 
-import java.util.Date;
+import java.io.Serializable;
+import java.sql.Timestamp;
 
-public class User {
+public class User implements Serializable  {
+	private static final long serialVersionUID = 1L;
+	
 	int userId;
 	String username;
 	String password;
 	Boolean isAdmin;
 	int status;
-	Date createTime;
+	String remark;
+	Timestamp createTime;
 	int creater;
-	Date updateTime;
+	Timestamp updateTime;
 	int updater;
 	
 	// 重写toString方法，便于打印日志观察对象内部的数据
@@ -22,7 +26,8 @@ public class User {
 				"password:" + this.password + ", " +
 				"isAdmin:" + this.isAdmin + ", " + 
 				"status:" + this.status + ", " +
-				"createTime:" + this.createTime + ", " +
+				"remark:" + this.remark + "," +
+ 				"createTime:" + this.createTime + ", " +
 				"creater:" + this.creater + ", " +
 				"updateTime:" + this.updateTime + ", " +
 				"updater:" + this.updater +
@@ -59,10 +64,16 @@ public class User {
 	public void setStatus(int status) {
 		this.status = status;
 	}
-	public Date getCreateTime() {
+	public String getRemark() {
+		return remark;
+	}
+	public void setRemark(String value) {
+		remark = value;
+	}
+	public Timestamp getCreateTime() {
 		return createTime;
 	}
-	public void setCreateTime(Date createTime) {
+	public void setCreateTime(Timestamp createTime) {
 		this.createTime = createTime;
 	}
 	public int getCreater() {
@@ -71,10 +82,10 @@ public class User {
 	public void setCreater(int creater) {
 		this.creater = creater;
 	}
-	public Date getUpdateTime() {
+	public Timestamp getUpdateTime() {
 		return updateTime;
 	}
-	public void setUpdateTime(Date updateTime) {
+	public void setUpdateTime(Timestamp updateTime) {
 		this.updateTime = updateTime;
 	}
 	public int getUpdater() {

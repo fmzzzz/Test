@@ -16,21 +16,21 @@
 				<tr>
 					<td>发布时间</td>
 					<td class="control">
-						<input type="date" placeholder="选择发布时间">
+						<input type="date" name="pubTime" placeholder="选择发布时间">
 					</td>
 					<td>截止时间</td>
 					<td class="control">
-						<input type="date" placeholder="选择截止时间">
+						<input type="date" name="expireTime" placeholder="选择截止时间">
 					</td>
 				</tr>
 				<tr>
 					<td>主题</td>
 					<td class="control">
-						<input type="text" class="p100" placeholder="填写公告主题">
+						<input type="text" name="subject" class="p100" placeholder="填写公告主题">
 					</td>
 					<td>通知范围</td>
 					<td class="control">
-						<select>
+						<select name="receiveId">
 							<option value="0">全部</option>
 							<option value="1">部门1</option>
 							<option value="2">部门2</option>
@@ -40,7 +40,7 @@
 				<tr>
 					<td>内容</td>
 					<td colspan="3" class="control">
-						<textarea class="p100" placeholder="请填写公告内容"></textarea>
+						<textarea class="p100" name="text" placeholder="请填写公告内容"></textarea>
 					</td>
 				</tr>
 			</table>
