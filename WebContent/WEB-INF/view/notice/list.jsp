@@ -67,8 +67,9 @@
                 	<fmt:formatDate value="${notice.expireTime}" type="both" pattern="MM-dd HH:mm"/>
                 </td>
                 <td>
-                	<a class="fa fa-pencil" title="编辑" href="<c:url value="/notice/update" />"></a>&nbsp;&nbsp;
-                	<i class="fa fa-remove" title="删除"></i>
+                	<a class="fa fa-pencil" title="编辑" href="<c:url value="/notice/update?id=" />${notice.noticeId}"></a>
+                	&nbsp;&nbsp;
+                	<a class="fa fa-remove" title="删除" href=""></a>
                 </td>
             </tr>
             </c:forEach>
