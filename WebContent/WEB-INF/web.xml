@@ -29,6 +29,7 @@
   <filter-mapping>
     <filter-name>UserFilter</filter-name>
     <url-pattern>/admin.jsp</url-pattern>
+    <url-pattern>/notice/*</url-pattern>
     <url-pattern>/message.jsp</url-pattern>
   </filter-mapping>
   <filter>

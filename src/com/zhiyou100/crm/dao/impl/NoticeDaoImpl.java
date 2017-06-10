@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -161,14 +162,16 @@ public class NoticeDaoImpl implements NoticeDao {
 	}
 	
 	@Override
-	public boolean removeById(int noticeId) {
+	public boolean removeById(int noticeId, int updater, Timestamp updateTime) {
 		// 物理删除
 		// String sql = "delete from notice where notice_id = ?";
 		// 逻辑删除
-		String sql = "update notice set status = -2 where notice_id = ?";
+		String sql = "update notice set status = -2, updater = ?, update_time = ? where notice_id = ?";
 		
 		try(Connection conn = DBUtil.getConnection(); PreparedStatement s = conn.prepareStatement(sql)) {
-			s.setInt(1, noticeId);
+			s.setInt(1, updater);
+			s.setTimestamp(2, updateTime);
+			s.setInt(3, noticeId);
 			return s.executeUpdate() > 0;
 		} catch (SQLException e) {
 			e.printStackTrace();

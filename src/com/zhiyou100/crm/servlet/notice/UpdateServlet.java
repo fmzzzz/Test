@@ -38,8 +38,8 @@ public class UpdateServlet extends HttpServlet {
 		Notice notice = new Notice();
 		
 		notice.setNoticeId(Integer.parseInt(request.getParameter("noticeId")));
-		notice.setSubject(request.getParameter("subject"));
-		notice.setText(request.getParameter("text"));
+		notice.setSubject(request.getParameter("subject").trim());
+		notice.setText(request.getParameter("text").trim());
 		notice.setPubTime(Timestamp.valueOf(request.getParameter("pubTime")));
 		notice.setExpireTime(Timestamp.valueOf(request.getParameter("expireTime")));
 		notice.setUpdateTime(Timestamp.valueOf(LocalDateTime.now()));

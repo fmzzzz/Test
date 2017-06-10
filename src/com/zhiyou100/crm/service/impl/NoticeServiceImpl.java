@@ -1,5 +1,6 @@
 package com.zhiyou100.crm.service.impl;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import com.zhiyou100.crm.dao.NoticeDao;
@@ -33,8 +34,8 @@ public class NoticeServiceImpl implements NoticeService {
 	}
 
 	@Override
-	public boolean removeById(int noticeId) {
-		return noticeDao.removeById(noticeId);
+	public boolean removeById(int noticeId, int updater, Timestamp updateTime) {
+		return noticeDao.removeById(noticeId, updater, updateTime);
 	}
 
 	@Override
