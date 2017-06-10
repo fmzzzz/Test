@@ -14,13 +14,15 @@ import com.zhiyou100.crm.model.Notice;
 import com.zhiyou100.crm.model.User;
 import com.zhiyou100.crm.service.NoticeService;
 import com.zhiyou100.crm.service.impl.NoticeServiceImpl;
+import com.zhiyou100.crm.util.AdminBaseServlet;
 import com.zhiyou100.crm.util.SessionKey;
 
 /**
  * 发布公告
  */
 @WebServlet("/notice/add")
-public class AddServlet extends HttpServlet {
+public class AddServlet extends AdminBaseServlet {
+
 	private static final long serialVersionUID = 1L;
 	
 	NoticeService noticeService = new NoticeServiceImpl();
@@ -37,10 +39,6 @@ public class AddServlet extends HttpServlet {
 		notice.setSubject(request.getParameter("subject"));
 		notice.setText(request.getParameter("text"));
 		notice.setCreateTime(Timestamp.valueOf(LocalDateTime.now()));
-
-		
-		// 为了能获取更多的用户信息，我们需要把User对象保存在Session中
-		User user = (User)request.getSession().getAttribute(SessionKey.USER);
 		notice.setCreater(user.getUserId());
 		
 		System.out.println(notice);

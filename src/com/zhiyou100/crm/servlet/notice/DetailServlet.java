@@ -10,12 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 import com.zhiyou100.crm.model.Notice;
 import com.zhiyou100.crm.service.NoticeService;
 import com.zhiyou100.crm.service.impl.NoticeServiceImpl;
+import com.zhiyou100.crm.util.AdminBaseServlet;
 
 /**
  * 公告详情
  */
 @WebServlet("/notice/detail")
-public class DetailServlet extends HttpServlet {
+public class DetailServlet extends AdminBaseServlet {
 	private static final long serialVersionUID = 1L;
 	
 	NoticeService noticeService = new NoticeServiceImpl();
