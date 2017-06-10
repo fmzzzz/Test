@@ -169,7 +169,7 @@ public class NoticeDaoImpl implements NoticeDao {
 		
 		try(Connection conn = DBUtil.getConnection(); PreparedStatement s = conn.prepareStatement(sql)) {
 			s.setInt(1, noticeId);
-			return s.executeUpdate() > 1;
+			return s.executeUpdate() > 0;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -179,7 +179,22 @@ public class NoticeDaoImpl implements NoticeDao {
 
 	@Override
 	public boolean update(Notice notice) {
-		// TODO Auto-generated method stub
+		String sql = "UPDATE notice SET `subject` = ?, `text` = ?, `pub_time` = ?, " +
+				"`expire_time` = ?, `update_time` = ?, `updater` = ? WHERE `notice_id` = ?";
+		
+		try(Connection conn = DBUtil.getConnection(); PreparedStatement s = conn.prepareStatement(sql)) {
+			s.setString(1, notice.getSubject());
+			s.setString(2, notice.getText());
+			s.setTimestamp(3, notice.getPubTime());
+			s.setTimestamp(4, notice.getExpireTime());
+			s.setTimestamp(5, notice.getUpdateTime());
+			s.setInt(6, notice.getUpdater());
+			s.setInt(7, notice.getNoticeId());
+			return s.executeUpdate() > 0;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 		return false;
 	}
 

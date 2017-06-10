@@ -41,7 +41,7 @@ public class AddServlet extends HttpServlet {
 		
 		// 为了能获取更多的用户信息，我们需要把User对象保存在Session中
 		User user = (User)request.getSession().getAttribute(SessionKey.USER);
-		notice.setCreater(user.getCreater());
+		notice.setCreater(user.getUserId());
 		
 		System.out.println(notice);
 		
