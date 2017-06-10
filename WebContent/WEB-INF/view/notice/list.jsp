@@ -69,7 +69,7 @@
                 <td>
                 	<a class="fa fa-pencil" title="编辑" href="<c:url value="/notice/update?id=" />${notice.noticeId}"></a>
                 	&nbsp;&nbsp;
-                	<a class="fa fa-remove" title="删除" href=""></a>
+                	<a class="fa fa-remove" title="删除" href="javascript:confirmDelete(${notice.noticeId})"></a>
                 </td>
             </tr>
             </c:forEach>
@@ -108,9 +108,14 @@
 	</div>
 	<script src="<c:url value="/lib/jquery/jquery.js" />"></script>
 	<script>
-    	function goPage(page) {
-    		$('#pageNo').val(page);
+    	function goPage(pageNo) {
+    		$('#pageNo').val(pageNo);
     		$('#searchForm').submit();
+    	}
+    	function confirmDelete(id){
+    		if (confirm("确定要删除码？")) {
+    			location.href = '<c:url value="/notice/remove?id=" />' + id
+    		}
     	}
     </script>
 </body>

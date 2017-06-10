@@ -162,7 +162,18 @@ public class NoticeDaoImpl implements NoticeDao {
 	
 	@Override
 	public boolean removeById(int noticeId) {
-		// TODO Auto-generated method stub
+		// 物理删除
+		// String sql = "delete from notice where notice_id = ?";
+		// 逻辑删除
+		String sql = "update notice set status = -2 where notice_id = ?";
+		
+		try(Connection conn = DBUtil.getConnection(); PreparedStatement s = conn.prepareStatement(sql)) {
+			s.setInt(1, noticeId);
+			return s.executeUpdate() > 1;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 		return false;
 	}
 

@@ -32,21 +32,21 @@
     <url-pattern>/message.jsp</url-pattern>
   </filter-mapping>
   <filter>
-  	<description>使用Tomcat内置的过滤器处理所有请求编码，这样就不需要在代码中写request.setChar...了</description>
+    <description>使用Tomcat内置的过滤器处理所有请求编码，这样就不需要在代码中写request.setChar...了</description>
     <filter-name>encodingFilter</filter-name>
     <filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
     <init-param>
-        <param-name>encoding</param-name>
-        <param-value>UTF-8</param-value>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
     </init-param>
     <init-param>
-        <param-name>ignore</param-name>
-        <param-value>false</param-value>
+      <param-name>ignore</param-name>
+      <param-value>false</param-value>
     </init-param>
   </filter>
   <filter-mapping>
-	<filter-name>encodingFilter</filter-name>
-	<url-pattern>/*</url-pattern>
+    <filter-name>encodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
   </filter-mapping>
   <jsp-config>
     <taglib>
