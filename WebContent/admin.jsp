@@ -141,6 +141,11 @@
 		            </li>
 		            <li>
 		            	<a href="#">
+		            		<i class=" fa fa-circle-thin"></i>&nbsp;&nbsp;垃圾箱
+		            	</a>
+		            </li>
+		            <li>
+		            	<a href="#">
 		            		<i class=" fa fa-circle-thin"></i>&nbsp;&nbsp;草稿箱
 		            	</a>
 		            </li>
