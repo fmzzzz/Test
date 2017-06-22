@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -24,6 +23,7 @@ public class ListServlet extends AdminBaseServlet {
 	
 	NoticeService noticeService = new NoticeServiceImpl();
        
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String field = "";
 		String keyword = "";
@@ -45,6 +45,7 @@ public class ListServlet extends AdminBaseServlet {
 		request.getRequestDispatcher("/WEB-INF/view/notice/list.jsp").forward(request, response);
 	}
 
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String field = request.getParameter("searchField");
 		String keyword = request.getParameter("keyword");

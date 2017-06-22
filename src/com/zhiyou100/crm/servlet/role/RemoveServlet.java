@@ -1,4 +1,4 @@
-package com.zhiyou100.crm.servlet.department;
+package com.zhiyou100.crm.servlet.role;
 
 import java.io.IOException;
 import java.sql.Timestamp;
@@ -9,25 +9,25 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.zhiyou100.crm.service.DepartmentService;
-import com.zhiyou100.crm.service.impl.DepartmentServiceImpl;
+import com.zhiyou100.crm.service.RoleService;
+import com.zhiyou100.crm.service.impl.RoleServiceImpl;
 import com.zhiyou100.crm.util.AdminBaseServlet;
 
 /**
- * 删除部门
+ * 删除角色
  */
-@WebServlet("/department/remove")
+@WebServlet("/role/remove")
 public class RemoveServlet extends AdminBaseServlet {
 	private static final long serialVersionUID = 1L;
 	
-	DepartmentService departmentService = new DepartmentServiceImpl();
+	RoleService roleService = new RoleServiceImpl();
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int departmentId = Integer.parseInt(request.getParameter("id"));
+		int roleId = Integer.parseInt(request.getParameter("id"));
 
-		departmentService.removeById(departmentId, user.getUserId(), Timestamp.valueOf(LocalDateTime.now()));
-		response.sendRedirect(request.getContextPath() + "/department/list");
+		roleService.removeById(roleId, user.getUserId(), Timestamp.valueOf(LocalDateTime.now()));
+		response.sendRedirect(request.getContextPath() + "/role/list");
 	}
 
 }

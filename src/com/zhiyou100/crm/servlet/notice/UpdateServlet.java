@@ -6,16 +6,13 @@ import java.time.LocalDateTime;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.zhiyou100.crm.model.Notice;
-import com.zhiyou100.crm.model.User;
 import com.zhiyou100.crm.service.NoticeService;
 import com.zhiyou100.crm.service.impl.NoticeServiceImpl;
 import com.zhiyou100.crm.util.AdminBaseServlet;
-import com.zhiyou100.crm.util.SessionKey;
 
 /**
  * 更新通知公告
@@ -26,6 +23,7 @@ public class UpdateServlet extends AdminBaseServlet {
 	
 	NoticeService noticeService = new NoticeServiceImpl();
 
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int noticeId = Integer.parseInt(request.getParameter("id"));
 		Notice notice = noticeService.getById(noticeId);
@@ -35,6 +33,7 @@ public class UpdateServlet extends AdminBaseServlet {
 		request.getRequestDispatcher("/WEB-INF/view/notice/update.jsp").forward(request, response);
 	}
 
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Notice notice = new Notice();
 		

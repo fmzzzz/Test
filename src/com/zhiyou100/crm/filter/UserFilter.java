@@ -7,7 +7,6 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -20,6 +19,7 @@ import com.zhiyou100.crm.util.SessionKey;
 public class UserFilter implements Filter {
 
 	// 这个方法是过滤器必须实现的方法
+	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		
 		// Servlet过滤器工作在Http层之下，因此此处需要类型转换
@@ -48,10 +48,12 @@ public class UserFilter implements Filter {
 	/* 下面2个方法只有在使用特殊情况时才需要实现，大部分情况可留空
 	 * 这2个方法删除也可以，因为最新版的Filter接口定义中已经把这2个方法声明为 default 的。
 	 */
+	@Override
 	public void init(FilterConfig fConfig) throws ServletException {
 		
 	}
 	
+	@Override
 	public void destroy() {
 
 	}

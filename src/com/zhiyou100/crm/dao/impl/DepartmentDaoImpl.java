@@ -10,7 +10,6 @@ import java.util.List;
 
 import com.zhiyou100.crm.dao.DepartmentDao;
 import com.zhiyou100.crm.model.Department;
-import com.zhiyou100.crm.model.Notice;
 import com.zhiyou100.crm.util.DBUtil;
 
 public class DepartmentDaoImpl implements DepartmentDao {

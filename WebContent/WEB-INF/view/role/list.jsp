@@ -6,39 +6,39 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>部门 - 智游客户关系管理系统</title>
+<title>角色管理 - 智游客户关系管理系统</title>
 <link rel="stylesheet" href="<c:url value="/lib/font-awesome/css/font-awesome.css" />">
 <link rel="stylesheet" href="<c:url value="/css/main.css" />">
 </head>
 <body>
 	<div class="box">
-		<h3>部门管理</h3>
+		<h3>角色管理</h3>
 		<div class="actions">
 			<form></form>
 			<div>
-				<a class="btn btn-primary" href="<c:url value="/department/add" />">添加部门</a>
+				<a class="btn btn-primary" href="<c:url value="/role/add" />">添加角色</a>
 			</div>
 		</div>
 		<table class="list">
             <tr>
                 <th>序号</th>
-                <th>部门名称</th>
-                <th>部门描述</th>
+                <th>角色名称</th>
+                <th>角色描述</th>
                 <th>更新时间</th>
                 <th>操作</th>
             </tr>
-            <c:forEach var="department" items="${ requestScope.list }">
+            <c:forEach var="role" items="${ list }">
             <tr>
-                <td>${ department.departmentId }</td>
-                <td>${ department.departmentName }</td>
-                <td>${ department.departmentDesc }</td>
+                <td>${ role.roleId }</td>
+                <td>${ role.roleName }</td>
+                <td>${ role.roleDesc }</td>
                 <td>
-                	<fmt:formatDate value="${department.updateTime}" type="both" pattern="MM-dd HH:mm"/>
+                	<fmt:formatDate value="${role.updateTime}" type="both" pattern="MM-dd HH:mm"/>
                 </td>
                 <td>
-                	<a class="fa fa-pencil" title="编辑" href="<c:url value="/department/update?id=" />${department.departmentId}"></a>
+                	<a class="fa fa-pencil" title="编辑" href="<c:url value="/role/update?id=" />${role.roleId}"></a>
                 	&nbsp;&nbsp;
-                	<a class="fa fa-remove" title="删除" href="javascript:confirmDelete(${department.departmentId})"></a>
+                	<a class="fa fa-remove" title="删除" href="javascript:confirmDelete(${role.roleId})"></a>
                 </td>
             </tr>
             </c:forEach>
@@ -48,7 +48,7 @@
 	<script>
     	function confirmDelete(id){
     		if (confirm("确定要删除码？")) {
-    			location.href = '<c:url value="/department/remove?id=" />' + id
+    			location.href = '<c:url value="/role/remove?id=" />' + id
     		}
     	}
     </script>

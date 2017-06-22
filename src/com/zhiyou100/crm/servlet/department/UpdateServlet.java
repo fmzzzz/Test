@@ -6,19 +6,13 @@ import java.time.LocalDateTime;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.zhiyou100.crm.model.Department;
-import com.zhiyou100.crm.model.Notice;
-import com.zhiyou100.crm.model.User;
 import com.zhiyou100.crm.service.DepartmentService;
-import com.zhiyou100.crm.service.NoticeService;
 import com.zhiyou100.crm.service.impl.DepartmentServiceImpl;
-import com.zhiyou100.crm.service.impl.NoticeServiceImpl;
 import com.zhiyou100.crm.util.AdminBaseServlet;
-import com.zhiyou100.crm.util.SessionKey;
 
 /**
  * 更新部门
@@ -29,6 +23,7 @@ public class UpdateServlet extends AdminBaseServlet {
 	
 	DepartmentService departmentService = new DepartmentServiceImpl();
 
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int departmentId = Integer.parseInt(request.getParameter("id"));
 		Department department = departmentService.getById(departmentId);
@@ -38,6 +33,7 @@ public class UpdateServlet extends AdminBaseServlet {
 		request.getRequestDispatcher("/WEB-INF/view/department/update.jsp").forward(request, response);
 	}
 
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		Department department = new Department();

@@ -83,7 +83,7 @@
 		            </li>
 		        </ul>
 	        </li>
-	        <li class="menu-title active">
+	        <li class="menu-title">
 	        	<a href="#">
 	    			<i class=" fa fa-file-text"></i>&nbsp;&nbsp;内部信息
 	    		</a>
@@ -151,7 +151,7 @@
 		            </li>
 		        </ul>
 	        </li>
-	        <li class="menu-title">
+	        <li class="menu-title active">
 	        	<a href="#">
 	    			<i class=" fa fa-sitemap"></i>&nbsp;&nbsp;管理员
 	    		</a>
@@ -164,7 +164,7 @@
 		            	</a>
 		            </li>
 		            <li>
-		            	<a href="#">
+		            	<a target="pageBox" href="<c:url value="/role/list" />">
 		            		<i class=" fa fa-circle-thin"></i>&nbsp;&nbsp;角色管理
 		            	</a>
 		            </li>
