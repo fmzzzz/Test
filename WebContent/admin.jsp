@@ -55,7 +55,7 @@
 		            	</a>
 		            </li>
 		            <li>
-		            	<a href="#">
+		            	<a target="pageBox" href="<c:url value="/customerState/list" />">
 		            		<i class=" fa fa-circle-thin"></i>&nbsp;&nbsp;客户状态
 		            	</a>
 		            </li>
