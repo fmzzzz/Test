@@ -19,8 +19,6 @@
             <a target="right" href="#">员工信息</a>
             <a target="right" href="#">公告信息</a>
             <a target="right" href="#">发件箱</a>
-            <a target="right" href="#">房屋信息</a>
-            <a target="right" href="#">发送微信</a>
 	    </div>
 	    <div class="user">
 	        <a href="#">${ sessionScope[SessionKey.USERNAME] }</a>
@@ -101,16 +99,6 @@
 		            	</a>
 		            </li>
 		            <li>
-		            	<a target="pageBox" href="<c:url value="/message.jsp" />">
-		            		<i class=" fa fa-circle-thin"></i>&nbsp;&nbsp;房屋信息
-		            	</a>
-		            </li>
-		            <li>
-		            	<a href="#">
-		            		<i class=" fa fa-circle-thin"></i>&nbsp;&nbsp;房屋类型
-		            	</a>
-		            </li>
-		            <li>
 		            	<a href="#">
 		            		<i class=" fa fa-circle-thin"></i>&nbsp;&nbsp;部门信息
 		            	</a>
@@ -169,7 +157,7 @@
 		            	</a>
 		            </li>
 		            <li>
-		            	<a href="#">
+		            	<a target="pageBox" href="<c:url value="/user/list" />">
 		            		<i class=" fa fa-circle-thin"></i>&nbsp;&nbsp;用户管理
 		            	</a>
 		            </li>

@@ -1,9 +1,6 @@
 package com.zhiyou100.crm.servlet.user;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.net.URLEncoder;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -29,6 +26,7 @@ public class LoginServlet extends HttpServlet {
 	
 	// 去掉了所有没必要的代码及注释
 	// 主要讲页面跳转。
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// 接收中文参数需要设置，已经改为通过Filter实现了

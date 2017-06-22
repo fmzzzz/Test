@@ -169,6 +169,10 @@ table.list {
 	text-align: left;
 	padding: 10px;
 }
+.form-table .control label {
+	position: relative;
+	top: -10px;
+}
 .form-table .p50 {
 	width: 50%;
 }

@@ -28,7 +28,7 @@ public class NoticeDaoImpl implements NoticeDao {
 	StringBuilder buildQuerySql(String field, String keyword, int id, boolean isCount) {
 		String filter = "";
 		if (keyword != null && !"".equals(keyword)) {
-			// 此处会导入SQL注入漏洞！
+			// 此处会导致SQL注入漏洞！
 			keyword = "'%" + keyword + "%' ";
 			filter = "and n.subject like " + keyword;
 			if ("text".equals(field)) {
