@@ -50,8 +50,8 @@
                 <td>
                 	<a title="查看详情" href="<c:url value="/notice/detail?id=" />${notice.noticeId}" >
                 	<c:choose> 
-				     	<c:when test="${fn:length(notice.text) > 32}"> 
-				      		${ fn:substring(notice.text, 0, 32) }...
+				     	<c:when test="${fn:length(notice.text) > 25}"> 
+				      		${ fn:substring(notice.text, 0, 25) }...
 				     	</c:when> 
 				     	<c:otherwise> 
 				      		${notice.text}
