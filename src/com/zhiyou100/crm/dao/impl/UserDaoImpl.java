@@ -93,7 +93,11 @@ public class UserDaoImpl implements UserDao {
 	public User getUserByLogin(String username, String password) {
 
 		// 参数化查询语句
-		String sql = "select * from user where username = ? and password = ?";
+		String sql = "select u.*, d.department_name, r.role_name from user u "
+				+ "left join department d on u.department_id = d.department_id "
+				+ "left join role r on u.role_id = r.role_id "
+				+ "where username = ? and password = ?";
+		
 		User user = null;
 
 		// 封装一个工具类，否则的话获取数据库连接的代码会出每个DaoImpl出现！
