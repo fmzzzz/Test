@@ -1,4 +1,4 @@
-package com.zhiyou100.crm.servlet.notice;
+package com.zhiyou100.crm.servlet.user;
 
 import java.io.IOException;
 import java.util.List;
@@ -8,20 +8,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.zhiyou100.crm.model.Notice;
-import com.zhiyou100.crm.service.NoticeService;
-import com.zhiyou100.crm.service.impl.NoticeServiceImpl;
+import com.zhiyou100.crm.model.User;
+import com.zhiyou100.crm.service.UserService;
+import com.zhiyou100.crm.service.impl.UserServiceImpl;
 import com.zhiyou100.crm.util.AdminBaseServlet;
 import com.zhiyou100.crm.util.Pager;
 
 /**
- * 通知公告列表
+ * 用户列表
  */
-@WebServlet("/notice/listview")
-public class ListServlet extends AdminBaseServlet {
+@WebServlet("/user/listview")
+public class ListViewServlet extends AdminBaseServlet {
 	private static final long serialVersionUID = 1L;
 	
-	NoticeService noticeService = new NoticeServiceImpl();
+	UserService userService = new UserServiceImpl();
        
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -35,14 +35,14 @@ public class ListServlet extends AdminBaseServlet {
 			pageNo = (int)request.getAttribute("pageNo");
 		}		
 		
-		int total = noticeService.total(field, keyword);
+		int total = userService.total(field, keyword);
 		Pager pager = new Pager(total, pageNo);
-		List<Notice> list = noticeService.list(field, keyword, pager);
+		List<User> list = userService.list(field, keyword, pager);
 		
 		
 		request.setAttribute("list", list);
 		request.setAttribute("pager", pager);
-		request.getRequestDispatcher("/WEB-INF/view/notice/listview.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/view/user/listview.jsp").forward(request, response);
 	}
 
 	@Override

@@ -37,9 +37,11 @@ public class UserDaoImpl implements UserDao {
 		if (isCount) {
 			sb.append("select count(1) from user u ");
 		} else {
-			sb.append("select u.* from user u ");
+			sb.append("select u.*, d.department_name, r.role_name from user u ");
 		}
-
+		
+		sb.append("left join department d on u.department_id = d.department_id ");
+		sb.append("left join role r on u.role_id = r.role_id ");
 		sb.append("where u.status = 2 ");
 
 		if (id > 0) {
@@ -61,7 +63,9 @@ public class UserDaoImpl implements UserDao {
 		user.setIsAdmin(set.getBoolean("is_admin"));
 		user.setIsSystem(set.getBoolean("is_system"));
 		user.setDepartmentId(set.getInt("department_id"));
+		user.setDepartmentName(set.getString("department_name"));
 		user.setRoleId(set.getInt("role_id"));
+		user.setRoleName(set.getString("role_name"));
 		user.setIsMale(set.getBoolean("is_male"));
 		user.setMobile(set.getString("mobile"));
 		user.setAddress(set.getString("address"));

@@ -13,7 +13,9 @@ public class User implements Serializable  {
 	Boolean isAdmin;
 	Boolean isSystem;
 	int departmentId;
+	String departmentName;
 	int roleId;
+	String roleName;
 	Boolean isMale;
 	String mobile;
 	String address;
@@ -44,7 +46,9 @@ public class User implements Serializable  {
 				"isAdmin:" + this.isAdmin + ", " + 
 				"isSystem:" + this.isSystem + ", " + 
 				"departmentId:" + this.departmentId + ", " + 
+				"departmentName:" + this.departmentName + ", " + 
 				"roleId:" + this.roleId + ", " + 
+				"roleName:" + this.roleName + ", " + 
 				"isMale:" + this.isMale + ", " + 
 				"mobile:" + this.mobile + ", " + 
 				"address:" + this.address + ", " + 
@@ -117,6 +121,22 @@ public class User implements Serializable  {
 
 	public int getRoleId() {
 		return roleId;
+	}
+	
+	public String getDepartmentName() {
+		return departmentName;
+	}
+
+	public void setDepartmentName(String departmentName) {
+		this.departmentName = departmentName;
+	}
+
+	public String getRoleName() {
+		return roleName;
+	}
+
+	public void setRoleName(String roleName) {
+		this.roleName = roleName;
 	}
 
 	public void setRoleId(int roleId) {

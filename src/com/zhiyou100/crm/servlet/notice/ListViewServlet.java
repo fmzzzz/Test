@@ -17,8 +17,8 @@ import com.zhiyou100.crm.util.Pager;
 /**
  * 通知公告列表
  */
-@WebServlet("/notice/listview")
-public class ListServlet extends AdminBaseServlet {
+@WebServlet("/notice/list")
+public class ListViewServlet extends AdminBaseServlet {
 	private static final long serialVersionUID = 1L;
 	
 	NoticeService noticeService = new NoticeServiceImpl();
@@ -42,7 +42,7 @@ public class ListServlet extends AdminBaseServlet {
 		
 		request.setAttribute("list", list);
 		request.setAttribute("pager", pager);
-		request.getRequestDispatcher("/WEB-INF/view/notice/listview.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/view/notice/list.jsp").forward(request, response);
 	}
 
 	@Override

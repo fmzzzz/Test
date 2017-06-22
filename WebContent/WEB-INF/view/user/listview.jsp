@@ -29,7 +29,7 @@
 				<input type="submit" class="btn btn-default" value="搜索">
 			</form>
 			<div>
-				<a class="btn btn-primary" href="<c:url value="/user/add" />">添加用户</a>
+				
 			</div>
 		</div>
 		<table class="list">
@@ -41,27 +41,21 @@
                 <th>手机号</th>
                 <th>邮箱</th>
                 <th>更新时间</th>
-                <th>操作</th>
             </tr>
             <c:forEach var="user" items="${ list }">
             <tr>
                 <td>${ user.userId }</td>
                 <td>
-	                <a title="查看详情" href="<c:url value="/user/detail?id=" />${user.userId}" >
+                	<a title="查看详情" href="<c:url value="/user/detail?id=" />${user.userId}" >
 	                	${ user.username }
 	                </a>
-                </td>
+	            </td>
                 <td>${ user.departmentId }</td>
                 <td>${ user.roleId }</td>
                 <td>${ user.mobile }</td>
                 <td>${ user.email }</td>
                 <td>
                 	<fmt:formatDate value="${user.updateTime}" type="both" pattern="MM-dd HH:mm"/>
-                </td>
-                <td>
-                	<a class="fa fa-pencil" title="编辑" href="<c:url value="/user/update?id=" />${user.userId}"></a>
-                	&nbsp;&nbsp;
-                	<a class="fa fa-remove" title="删除" href="javascript:confirmDelete(${user.userId})"></a>
                 </td>
             </tr>
             </c:forEach>
@@ -103,11 +97,6 @@
     	function goPage(pageNo) {
     		$('#pageNo').val(pageNo);
     		$('#searchForm').submit();
-    	}
-    	function confirmDelete(id){
-    		if (confirm("确定要删除码？")) {
-    			location.href = '<c:url value="/user/remove?id=" />' + id
-    		}
     	}
     </script>
 </body>

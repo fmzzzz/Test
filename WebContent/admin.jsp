@@ -64,21 +64,6 @@
 		            		<i class=" fa fa-circle-thin"></i>&nbsp;&nbsp;客户来源
 		            	</a>
 		            </li>
-		            <li>
-		            	<a href="#">
-		            		<i class=" fa fa-circle-thin"></i>&nbsp;&nbsp;客户记录
-		            	</a>
-		            </li>
-		            <li>
-		            	<a href="#">
-		            		<i class=" fa fa-circle-thin"></i>&nbsp;&nbsp;联系记录
-		            	</a>
-		            </li>
-		            <li>
-		            	<a href="#">
-		            		<i class=" fa fa-circle-thin"></i>&nbsp;&nbsp;联系人
-		            	</a>
-		            </li>
 		        </ul>
 	        </li>
 	        <li class="menu-title">
@@ -94,12 +79,12 @@
 		            	</a>
 		        	</li>
 		            <li>
-		            	<a target="pageBox" href="<c:url value="/message2.jsp" />">
+		            	<a target="pageBox" href="<c:url value="/user/listview" />">
 		            		<i class=" fa fa-circle-thin"></i>&nbsp;&nbsp;员工信息
 		            	</a>
 		            </li>
 		            <li>
-		            	<a href="#">
+		            	<a target="pageBox" href="<c:url value="/department/listview" />">
 		            		<i class=" fa fa-circle-thin"></i>&nbsp;&nbsp;部门信息
 		            	</a>
 		            </li>
@@ -165,7 +150,7 @@
 	        </li>
 	    </ul>
 	    <div class="right-side">
-	    	<iframe name="pageBox" src="<c:url value="/message.jsp" />"></iframe>
+	    	<iframe name="pageBox" src="<c:url value="/notice/listview" />"></iframe>
 		    <div class="footer">
 		    	智游教育 ©2017 河南智游臻龙教育科技有限公司
 		    </div>
