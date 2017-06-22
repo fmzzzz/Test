@@ -6,13 +6,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>用户列表 - 智游客户关系管理系统</title>
+<title>用户信息 - 智游客户关系管理系统</title>
 <link rel="stylesheet" href="<c:url value="/lib/font-awesome/css/font-awesome.css" />">
 <link rel="stylesheet" href="<c:url value="/css/main.css" />">
 </head>
 <body>
 	<div class="box">
-		<h3>用户列表</h3>
+		<h3>用户信息</h3>
 		<div class="actions">
 			<form id="searchForm" action="<c:url value="/user/list" />" method="post">
 				<span>搜索内容：</span>
