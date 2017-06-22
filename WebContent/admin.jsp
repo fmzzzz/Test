@@ -50,8 +50,8 @@
 		            	</a>
 		            </li>
 		            <li>
-		            	<a href="#">
-		            		<i class=" fa fa-circle-thin"></i>&nbsp;&nbsp;客户类型
+		            	<a target="pageBox" href="<c:url value="/customerCategory/list" />">
+		            		<i class=" fa fa-circle-thin"></i>&nbsp;&nbsp;客户分类
 		            	</a>
 		            </li>
 		            <li>
@@ -66,7 +66,7 @@
 		            </li>
 		        </ul>
 	        </li>
-	        <li class="menu-title">
+	        <li class="menu-title active">
 	        	<a href="#">
 	    			<i class=" fa fa-file-text"></i>&nbsp;&nbsp;内部信息
 	    		</a>
@@ -74,7 +74,7 @@
 	        <li class="sub-menu">
 		        <ul>
 		        	<li>
-		        		<a target="pageBox" href="<c:url value="/notice/list" />">
+		        		<a target="pageBox" href="<c:url value="/notice/listview" />">
 		            		<i class=" fa fa-circle-thin"></i>&nbsp;&nbsp;通知公告
 		            	</a>
 		        	</li>
@@ -124,7 +124,7 @@
 		            </li>
 		        </ul>
 	        </li>
-	        <li class="menu-title active">
+	        <li class="menu-title">
 	        	<a href="#">
 	    			<i class=" fa fa-sitemap"></i>&nbsp;&nbsp;管理员
 	    		</a>
