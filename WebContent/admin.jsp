@@ -159,7 +159,7 @@
 	        <li class="sub-menu">
 		        <ul class="menu">
 		            <li>
-		            	<a href="#">
+		            	<a target="pageBox" href="<c:url value="/department/list" />">
 		            		<i class=" fa fa-circle-thin"></i>&nbsp;&nbsp;部门管理
 		            	</a>
 		            </li>

@@ -44,7 +44,7 @@ public class UpdateServlet extends AdminBaseServlet {
 		notice.setPubTime(Timestamp.valueOf(request.getParameter("pubTime")));
 		notice.setExpireTime(Timestamp.valueOf(request.getParameter("expireTime")));
 		notice.setUpdateTime(Timestamp.valueOf(LocalDateTime.now()));
-		notice.setCreater(user.getUserId());
+		notice.setUpdater(user.getUserId());
 		
 		if (noticeService.update(notice)) {
 			response.sendRedirect(request.getContextPath() + "/notice/list");
