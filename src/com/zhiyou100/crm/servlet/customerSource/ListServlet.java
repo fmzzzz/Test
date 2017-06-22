@@ -5,16 +5,16 @@ import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.zhiyou100.crm.model.CustomerSource;
 import com.zhiyou100.crm.service.CustomerSourceService;
 import com.zhiyou100.crm.service.impl.CustomerSourceServiceImpl;
+import com.zhiyou100.crm.util.AdminBaseServlet;
 
 @WebServlet(urlPatterns = { "/customerSource/list" })
-public class ListServlet extends HttpServlet {
+public class ListServlet extends AdminBaseServlet {
 	private static final long serialVersionUID = 1L;
 
 	CustomerSourceService customerSourceService = new CustomerSourceServiceImpl();

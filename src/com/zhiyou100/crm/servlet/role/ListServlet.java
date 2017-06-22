@@ -5,16 +5,16 @@ import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.zhiyou100.crm.model.Role;
 import com.zhiyou100.crm.service.RoleService;
 import com.zhiyou100.crm.service.impl.RoleServiceImpl;
+import com.zhiyou100.crm.util.AdminBaseServlet;
 
 @WebServlet(name = "RoleListServlet", urlPatterns = { "/role/list" })
-public class ListServlet extends HttpServlet {
+public class ListServlet extends AdminBaseServlet {
 	private static final long serialVersionUID = 1L;
 
 	RoleService roleService = new RoleServiceImpl();

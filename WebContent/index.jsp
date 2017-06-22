@@ -47,5 +47,10 @@
             </div>
         </form>
     </div>
+    <script>
+    	if (window.top !== window) {
+    		window.top.location.reload();
+    	}
+    </script>
 </body>
 </html>
