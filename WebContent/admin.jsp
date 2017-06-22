@@ -60,7 +60,7 @@
 		            	</a>
 		            </li>
 		            <li>
-		            	<a href="#">
+		            	<a target="pageBox" href="<c:url value="/customerSource/list" />">
 		            		<i class=" fa fa-circle-thin"></i>&nbsp;&nbsp;客户来源
 		            	</a>
 		            </li>
