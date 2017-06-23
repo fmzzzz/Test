@@ -6,13 +6,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>通知公告 - 智游客户关系管理系统</title>
+<title>公告管理 - 智游客户关系管理系统</title>
 <link rel="stylesheet" href="<c:url value="/lib/font-awesome/css/font-awesome.css" />">
 <link rel="stylesheet" href="<c:url value="/css/main.css" />">
 </head>
 <body>
 	<div class="box">
-		<h3>通知公告</h3>
+		<h3>公告管理</h3>
 		<div class="actions">
 			<form id="searchForm" action="<c:url value="/notice/list" />" method="post">
 				<span>搜索内容：</span>
@@ -74,37 +74,7 @@
             </tr>
             </c:forEach>
         </table>
-        <div class="pager-info">
-        	<div>共有 ${ requestScope.pager.total } 条记录，第 ${ requestScope.pager.pageNo }/${ requestScope.pager.pageCount } 页 </div>
-        	<div>
-        		<ul class="pagination">
-        			<li class="paginate_button previous ${ requestScope.pager.pageNo==1?'disabled':'' }"
-        				<c:choose>
-        					<c:when test="${ requestScope.pager.pageNo > 1 }">
-        					onclick="goPage(${requestScope.pager.pageNo-1})"
-        					</c:when>
-        				</c:choose>
-        			>
-        				<a href="#">上一页</a>
-        			</li>
-        			<c:forEach var="p" begin="${ requestScope.pager.start }" end="${ requestScope.pager.end }">
-        			<li class="paginate_button <c:out value="${ requestScope.pager.pageNo==p?'active':'' }" />" 
-        				onclick="goPage(${p})">
-        				<a href="#">${ p }</a>
-        			</li>	
-        			</c:forEach>
-        			<li class="paginate_button next ${ requestScope.pager.pageNo==requestScope.pager.pageCount?'disabled':'' }"
-        				<c:choose>
-        					<c:when test="${ requestScope.pager.pageNo < requestScope.pager.pageCount }">
-        					onclick="goPage(${requestScope.pager.pageNo+1})"
-        					</c:when>
-        				</c:choose>
-        			>
-        				<a href="#">下一页</a>
-        			</li>
-        		</ul>
-        	</div>
-        </div>
+        <%@ include file="/WEB-INF/shared/pageInfo.jsp"  %>
 	</div>
 	<script src="<c:url value="/lib/jquery/jquery.js" />"></script>
 	<script>

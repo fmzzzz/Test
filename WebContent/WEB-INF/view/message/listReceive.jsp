@@ -6,65 +6,63 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>用户列表 - 智游客户关系管理系统</title>
+<title>收件箱 - 智游客户关系管理系统</title>
 <link rel="stylesheet" href="<c:url value="/lib/font-awesome/css/font-awesome.css" />">
 <link rel="stylesheet" href="<c:url value="/css/main.css" />">
 </head>
 <body>
 	<div class="box">
-		<h3>用户列表</h3>
+		<h3>收件箱</h3>
 		<div class="actions">
-			<form id="searchForm" action="<c:url value="/user/list" />" method="post">
+			<form id="searchForm" action="<c:url value="/message/listReceive" />" method="post">
 				<span>搜索内容：</span>
 				<input type="text" name="keyword" value="${ keyword }" placeholder="请输入搜索关键词">
 				&nbsp;&nbsp;&nbsp;
 				<span>搜索字段：</span>
 				<select name="searchField">
-					<option value="username" ${ field=="username"?"selected":"" }>用户名</option>
-					<option value="mobile" ${ field=="mobile"?"selected":"" }>手机号</option>
-					<option value="address" ${ field=="address"?"selected":"" }>地址</option>
+					<option value="subject" ${ field=="subject"?"selected":"" }>主题</option>
+					<option value="content" ${ field=="content"?"selected":"" }>内容</option>
 				</select>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<input type="hidden" id="pageNo" name="pageNo" value="${ pageNo }">
 				<input type="submit" class="btn btn-default" value="搜索">
 			</form>
 			<div>
-				<a class="btn btn-primary" href="<c:url value="/user/add" />">添加用户</a>
+				<a class="btn btn-primary" href="<c:url value="/message/save" />">写邮件</a>
 			</div>
 		</div>
 		<table class="list">
             <tr>
                 <th>序号</th>
-                <th>用户名</th>
-                <th>部门</th>
-                <th>角色</th>
-                <th>手机号</th>
-                <th>邮箱</th>
-                <th>更新时间</th>
+                <th>收件人</th>
+                <th>主题</th>
+                <th>发送时间</th>
                 <th>操作</th>
             </tr>
-            <c:forEach var="user" items="${ list }">
+            <c:forEach var="message" items="${ list }">
             <tr>
-                <td>${ user.userId }</td>
+                <td>${ message.messageId }</td>
+                <td>${ message.receiverName }</td>
                 <td>
-	                <a title="查看详情" href="<c:url value="/user/detail?id=" />${user.userId}" >
-	                	${ user.username }
+	                <a title="查看详情" href="<c:url value="/message/detail?id=" />${message.messageId}" >
+	                	${ message.subject }
 	                </a>
                 </td>
-                <td>${ user.departmentId }</td>
-                <td>${ user.roleId }</td>
-                <td>${ user.mobile }</td>
-                <td>${ user.email }</td>
                 <td>
-                	<fmt:formatDate value="${user.updateTime}" type="both" pattern="MM-dd HH:mm"/>
+                	<fmt:formatDate value="${message.sendTime}" type="both" pattern="yyyy-MM-dd HH:mm"/>
                 </td>
                 <td>
-                	<a class="fa fa-pencil" title="编辑" href="<c:url value="/user/update?id=" />${user.userId}"></a>
-                	&nbsp;&nbsp;
-                	<a class="fa fa-remove" title="删除" href="javascript:confirmDelete(${user.userId})"></a>
+                	<a class="fa fa-remove" title="删除" href="javascript:confirmDelete(${message.messageId})"></a>
                 </td>
             </tr>
             </c:forEach>
+            <c:if test="${empty list}">
+    		<tr>
+    			<td colspan="5">
+    				没有邮件..
+    			</td>
+    		</tr>
+    		</c:if>
         </table>
         <%@ include file="/WEB-INF/shared/pageInfo.jsp"  %>
 	</div>
@@ -76,7 +74,7 @@
     	}
     	function confirmDelete(id){
     		if (confirm("确定要删除码？")) {
-    			location.href = '<c:url value="/user/remove?id=" />' + id
+    			location.href = '<c:url value="/message/remove?side=receive&id=" />' + id
     		}
     	}
     </script>

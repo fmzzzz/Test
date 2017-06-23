@@ -98,28 +98,28 @@
 	        <li class="sub-menu">
 		        <ul>
 		            <li>
-		            	<a href="#">
+		            	<a target="pageBox" href="<c:url value="/message/save" />">
 		            		<i class=" fa fa-circle-thin"></i>&nbsp;&nbsp;写邮件
 		            	</a>
 		           	</li>
 		            <li>
-		            	<a href="#">
+		            	<a target="pageBox" href="<c:url value="/message/listReceive" />">
 		            		<i class=" fa fa-circle-thin"></i>&nbsp;&nbsp;收件箱
 		            	</a>
 		           	</li>
 		            <li>
-		            	<a href="#">
+		            	<a target="pageBox" href="<c:url value="/message/listSend" />">
 		            		<i class=" fa fa-circle-thin"></i>&nbsp;&nbsp;发件箱
 		            	</a>
 		            </li>
 		            <li>
-		            	<a href="#">
-		            		<i class=" fa fa-circle-thin"></i>&nbsp;&nbsp;垃圾箱
+		            	<a target="pageBox" href="<c:url value="/message/listSave" />">
+		            		<i class=" fa fa-circle-thin"></i>&nbsp;&nbsp;草稿箱
 		            	</a>
 		            </li>
-		            <li>
-		            	<a href="#">
-		            		<i class=" fa fa-circle-thin"></i>&nbsp;&nbsp;草稿箱
+		             <li>
+		            	<a target="pageBox" href="<c:url value="/message/listRemove" />">
+		            		<i class=" fa fa-circle-thin"></i>&nbsp;&nbsp;垃圾箱
 		            	</a>
 		            </li>
 		        </ul>
@@ -131,6 +131,11 @@
 	        </li>
 	        <li class="sub-menu">
 		        <ul class="menu">
+		        	<li>
+		        		<a target="pageBox" href="<c:url value="/notice/list" />">
+		            		<i class=" fa fa-circle-thin"></i>&nbsp;&nbsp;公告管理
+		            	</a>
+		        	</li>
 		            <li>
 		            	<a target="pageBox" href="<c:url value="/department/list" />">
 		            		<i class=" fa fa-circle-thin"></i>&nbsp;&nbsp;部门管理

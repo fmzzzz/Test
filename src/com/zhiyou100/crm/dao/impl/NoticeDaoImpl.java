@@ -43,9 +43,9 @@ public class NoticeDaoImpl implements NoticeDao {
 		}
 		else {
 			sb.append("select n.*, u.username creater_name from notice n ");
+			sb.append("left join user u on n.creater = u.user_id ");
 		}
 		
-		sb.append("left join user u on n.creater = u.user_id ");
 		sb.append("where n.status = 2 ");
 		
 		if (id > 0) {

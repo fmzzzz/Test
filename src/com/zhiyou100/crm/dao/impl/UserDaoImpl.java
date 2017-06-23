@@ -38,10 +38,10 @@ public class UserDaoImpl implements UserDao {
 			sb.append("select count(1) from user u ");
 		} else {
 			sb.append("select u.*, d.department_name, r.role_name from user u ");
+			sb.append("left join department d on u.department_id = d.department_id ");
+			sb.append("left join role r on u.role_id = r.role_id ");
 		}
 		
-		sb.append("left join department d on u.department_id = d.department_id ");
-		sb.append("left join role r on u.role_id = r.role_id ");
 		sb.append("where u.status = 2 ");
 
 		if (id > 0) {
