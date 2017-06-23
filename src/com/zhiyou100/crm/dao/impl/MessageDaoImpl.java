@@ -26,7 +26,7 @@ public class MessageDaoImpl implements MessageDao {
 			s.setString(1, message.getSubject());
 			s.setString(2, message.getContent());
 			s.setTimestamp(3, message.getSendTime());
-			s.setInt(4, message.getSendStatus());
+			s.setInt(4, send ? 2 : 0);
 			s.setTimestamp(5, message.getSendUpdateTime());
 			s.setInt(6, message.getReceiver());
 			s.setInt(7, message.getMessageId());

@@ -16,13 +16,17 @@
 				<tr>
 					<td>收件人</td>
 					<td colspan="3" class="control">
-						<input type="text" name="receiver" placeholder="填写收件人Id">
+						<select name="receiver">
+						<c:forEach var="user" items="${ users }">
+							<option value="${ user.userId }">${ user.username }</option>
+						</c:forEach>
+						</select>
 					</td>
 				</tr>
 				<tr>
 					<td>主题</td>
 					<td colspan="3" class="control">
-						<input type="text" name="subject" placeholder="填写邮件主题">
+						<input type="text" name="subject" placeholder="请填写邮件主题">
 					</td>
 				</tr>
 				<tr>

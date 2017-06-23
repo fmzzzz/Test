@@ -3,6 +3,7 @@ package com.zhiyou100.crm.servlet.message;
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,8 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.zhiyou100.crm.model.Message;
+import com.zhiyou100.crm.model.User;
 import com.zhiyou100.crm.service.MessageService;
+import com.zhiyou100.crm.service.UserService;
 import com.zhiyou100.crm.service.impl.MessageServiceImpl;
+import com.zhiyou100.crm.service.impl.UserServiceImpl;
 import com.zhiyou100.crm.util.AdminBaseServlet;
 
 @WebServlet(urlPatterns = { "/message/save" })
@@ -19,9 +23,12 @@ public class SaveServlet extends AdminBaseServlet {
 	private static final long serialVersionUID = 1L;
 	
 	MessageService messageService = new MessageServiceImpl();
+	UserService userService = new UserServiceImpl();
        
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		List<User> users = userService.list("", "", null);
+		request.setAttribute("users", users);
 		request.getRequestDispatcher("/WEB-INF/view/message/save.jsp").forward(request, response);
 	}
 

@@ -42,7 +42,7 @@ public class UserDaoImpl implements UserDao {
 			sb.append("left join role r on u.role_id = r.role_id ");
 		}
 		
-		sb.append("where u.status = 2 ");
+		sb.append("where u.status = 2 and u.is_system = 0 ");
 
 		if (id > 0) {
 			sb.append("and u.user_id = " + id + " ");
@@ -182,7 +182,10 @@ public class UserDaoImpl implements UserDao {
 		List<User> list = new ArrayList<User>();
 		
 		StringBuilder sb = buildQuerySql(field, keyword);
-		sb.append("limit " + (pager.getPageNo() - 1) * pager.getPageSize() + ", " + pager.getPageSize());
+		
+		if (pager != null) {
+			sb.append("limit " + (pager.getPageNo() - 1) * pager.getPageSize() + ", " + pager.getPageSize());
+		}
 		
 		try(
 			Connection conn = DBUtil.getConnection(); 

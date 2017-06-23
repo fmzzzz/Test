@@ -3,14 +3,19 @@ package com.zhiyou100.crm.servlet.message;
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.zhiyou100.crm.model.Message;
+import com.zhiyou100.crm.model.User;
 import com.zhiyou100.crm.service.MessageService;
+import com.zhiyou100.crm.service.UserService;
 import com.zhiyou100.crm.service.impl.MessageServiceImpl;
+import com.zhiyou100.crm.service.impl.UserServiceImpl;
 import com.zhiyou100.crm.util.AdminBaseServlet;
 
 /**
@@ -21,13 +26,17 @@ public class UpdateServlet extends AdminBaseServlet {
 	private static final long serialVersionUID = 1L;
 	
 	MessageService messageService = new MessageServiceImpl();
+	UserService userService = new UserServiceImpl();
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int messageId = Integer.parseInt(request.getParameter("id"));
 		Message message = messageService.getById(messageId);
+		List<User> users = userService.list("", "", null);
 		
+		request.setAttribute("users", users);
 		request.setAttribute("message", message);
+		
 		System.out.println(message);
 		
 		request.getRequestDispatcher("/WEB-INF/view/message/update.jsp").forward(request, response);
@@ -52,12 +61,7 @@ public class UpdateServlet extends AdminBaseServlet {
 		boolean send = request.getParameter("send") != null;
 		
 		if (messageService.update(message, send)) {
-			if(send) {
-				response.sendRedirect(request.getContextPath() + "/message/listSend");
-			}
-			else {
-				response.sendRedirect(request.getContextPath() + "/message/listSave");
-			}
+			response.sendRedirect(request.getContextPath() + "/message/listSave");
 		}
 		else{
 			doGet(request, response);
