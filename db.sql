@@ -255,7 +255,7 @@ CREATE TABLE `message` (
 
 LOCK TABLES `message` WRITE;
 /*!40000 ALTER TABLE `message` DISABLE KEYS */;
-INSERT INTO `message` VALUES (1,'发一个消息给管理员','发一个消息给管理员发一个消息给管理员发一个消息给管理员发一个消息给管理员发一个消息给管理员',2,'2017-06-23 04:15:29','2017-06-23 04:15:29',2,0,'2017-06-23 04:15:29',1,2,0,'2017-06-23 04:15:29'),(2,'发一个消息给管理员','发一个消息给管理员发一个消息给管理员发一个消息给管理员发一个消息给管理员发一个消息给管理员',1,'2017-06-23 04:09:49','2017-06-23 04:09:49',2,0,'2017-06-23 04:09:49',2,2,0,'2017-06-23 04:09:49');
+INSERT INTO `message` VALUES (1,'发一个消息给管理员','发一个消息给管理员发一个消息给管理员发一个消息给管理员发一个消息给管理员发一个消息给管理员',2,'2017-06-23 05:32:20','2017-06-23 05:32:20',2,2,'2017-06-23 05:32:20',3,2,0,'2017-06-23 05:32:20'),(2,'发一个消息给管理员','发一个消息给管理员发一个消息给管理员发一个消息给管理员发一个消息给管理员发一个消息给管理员',1,'2017-06-23 04:09:49','2017-06-23 04:09:49',2,0,'2017-06-23 04:09:49',2,2,0,'2017-06-23 04:09:49');
 /*!40000 ALTER TABLE `message` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -337,7 +337,7 @@ CREATE TABLE `user` (
   `username` varchar(8) COLLATE utf8_unicode_ci NOT NULL COMMENT '用户账号',
   `password` varchar(20) COLLATE utf8_unicode_ci NOT NULL COMMENT '密码',
   `is_admin` bit(1) NOT NULL DEFAULT b'0' COMMENT '是否是管理员',
-  `is_system` bit(1) DEFAULT NULL,
+  `is_system` bit(1) DEFAULT NULL COMMENT '0',
   `department_id` int(11) DEFAULT NULL,
   `role_id` int(11) DEFAULT NULL,
   `is_male` bit(1) DEFAULT NULL,
@@ -373,7 +373,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'admin','123456','','',1,1,'','18638273637','郑州市二七区兴华南街66号',33,NULL,NULL,'changwei@zhiyou100.com',NULL,NULL,NULL,NULL,NULL,NULL,2,NULL,'2017-06-22 03:32:05',NULL,'2017-06-22 03:32:05',NULL),(2,'常伟','654321','','\0',1,1,'','18638273638','郑州市经开区河南通信产业园',30,NULL,NULL,'273263743@qq.com',NULL,NULL,NULL,NULL,NULL,NULL,2,NULL,'2017-06-22 03:33:34',NULL,'2017-06-22 03:33:34',NULL),(3,'吴蛟龙','123456','\0',NULL,2,2,'','18611212121','理想城11号',30,'21314231','1231231231231','wujiaolong@qq.com','12323123123','电影',5,'123123213123123123','汉',1,2,'主任1','2017-06-22 08:00:07',0,'2017-06-22 08:00:08',3);
+INSERT INTO `user` VALUES (1,'admin','123456','','',1,1,'','18638273637','郑州市二七区兴华南街66号',33,NULL,NULL,'changwei@zhiyou100.com',NULL,NULL,NULL,NULL,NULL,NULL,2,NULL,'2017-06-22 03:32:05',NULL,'2017-06-22 03:32:05',NULL),(2,'常伟','654321','','\0',1,1,'','18638273638','郑州市经开区河南通信产业园',30,NULL,NULL,'273263743@qq.com',NULL,NULL,NULL,NULL,NULL,NULL,2,NULL,'2017-06-22 03:33:34',NULL,'2017-06-22 03:33:34',NULL),(3,'吴蛟龙','123456','\0','\0',2,2,'','18611212121','理想城11号',30,'21314231','1231231231231','wujiaolong@qq.com','12323123123','电影',5,'123123213123123123','汉',1,2,'主任1','2017-06-23 05:23:51',0,'2017-06-23 05:23:51',3);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -386,4 +386,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-23 12:21:45
+-- Dump completed on 2017-06-23 13:35:05

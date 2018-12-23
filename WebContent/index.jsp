@@ -21,6 +21,13 @@
 	// 【EL】
 	// ${param.username}  相当于 《%= request.getParameter("username") %》 但是比getParameter更友好（会出现null）
 	// ${requestScope.errorMessage}  相当于 《%= request.getAttribute("errorMessage") %》
+	
+	
+	//${param.username}
+    //会依次调用pageContext.getAttribute("username") -> request.getAttribute("username") -> session.getAttribute("username") -> application.getAttribute("username")，只要找到某一个不为空的值就立刻返回。
+    //${requestScope.username}
+    //只返回request.getAttribute("username")
+	// value="${param.username}"
 %>
 <!DOCTYPE html>
 <html>

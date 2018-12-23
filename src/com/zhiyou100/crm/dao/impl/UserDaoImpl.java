@@ -102,17 +102,21 @@ public class UserDaoImpl implements UserDao {
 
 		// 封装一个工具类，否则的话获取数据库连接的代码会出每个DaoImpl出现！
 		/*
-		 * Connection conn = DBUtil.getConnection(); PreparedStatement s = null;
+		 * Connection conn = DBUtil.getConnection(); 
+		   PreparedStatement s = null;
 		 * 
 		 * try {
 		 * 
 		 * s = conn.prepareStatement(sql);
 		 * 
-		 * // 按顺序设置查询参数，从1开始 s.setString(1, username); s.setString(2, password);
+		 * // 按顺序设置查询参数，从1开始 
+		   s.setString(1, username); 
+		   s.setString(2, password);
 		 * 
 		 * // 查询结果 ResultSet set = s.executeQuery();
 		 * 
-		 * // 读取查询结果中的第一条数据 if (set.next()) { user = new User();
+		 * // 读取查询结果中的第一条数据 
+		  if (set.next()) { user = new User();
 		 * 
 		 * // 将数据设置到模型对象中 user.setUserId(set.getInt("user_id"));
 		 * user.setUsername(set.getString("username"));
